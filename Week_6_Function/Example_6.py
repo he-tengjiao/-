@@ -1,20 +1,12 @@
+# 五、使用global语句修改全局变量
+def spam():
+    global eggs
+    eggs = 'spam'
+    print(eggs)
 
-# 鸡兔同笼代码
-def calculate(n_heads,n_legs):
-    check = 0
-    for n_chicks in range(0,n_heads+1):
-        n_rabbits = n_heads - n_chicks
-        total_legs = 4*n_rabbits+2*n_chicks
-        if total_legs==n_legs:
-            print("鸡和兔的个数分别为：", n_chicks, n_rabbits)
-            check = 1
-            
-    if check == 0:
-        print("不存在")
-        
-legs=int(input("输入腿的个数："))
-heads=int(input("输入头的个数："))
-calculate(heads, legs)
+eggs = 'global'
+spam()
+print(eggs)
 
 
 
@@ -38,19 +30,19 @@ def describe_pet(animal_type, pet_name):
     print("its name is " + pet_name.title())
 
 # 调用函数
-describe_pet(animal_type='hamster', pet_name='Harry')
+describe_pet(pet_name='Harry',animal_type='hamster')
 
 
 
 # 默认值实参，定义函数
-def describe_pet(animal_type, pet_name='dog'):
+def describe_pet(animal_type, pet_name='Tom'):
     """显示宠物的信息"""
     print("\nI have a " + animal_type)
     print("its name is " + pet_name.title())
 
 # 调用函数
-describe_pet(pet_name='Harry')
-#describe_pet('Harry')
+describe_pet(animal_type='Dog')
+#describe_pet('Cat')
 
 
 # 任意数量实参，定义函数
@@ -66,11 +58,13 @@ make_pizza('mushrooms', 'green peppers', 'extra cheese')
 ###################################
 # 函数作用域
 def f1():
-    a = 31337
+    a = 1
+    b = 1
 
-# 二、局部作用域不能使用其他局部作用域内的变量
 f1()
 print(a)
+
+# 二、局部作用域不能使用其他局部作用域内的变量
 
 def f1():
     a = 99
@@ -82,7 +76,6 @@ def f2():
     a = 2
 
 f1()
-
 
 # 三、全局变量可以在局部作用域中读取
 def f1():
@@ -101,11 +94,17 @@ def bacon():
     eggs = 'bacon local'
     print(eggs) 
     spam()
-    print(eggs) 
+    print(eggs)
+
+
+def f1():
+    print(eggs)
 
 eggs = 'global'
 bacon()
-print(eggs) 
+print(eggs)
+f1()
+
 
 # 五、使用global语句修改全局变量
 def spam():
