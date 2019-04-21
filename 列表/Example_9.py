@@ -35,7 +35,7 @@ print(Name)
 
 
 
-
+# 列表作用域
 
 # 列表的复制1
 a = ['A', 'B', 'C']
@@ -89,4 +89,23 @@ print(id(a))
 f()
 print(a)
 print(id(a))
+
+
+
+# 元组
+a = ('a','b','c')
+
+# 元组不可变
+a = tuple()
+
+a = tuple('student')
+# 索引
+a[1]
+
+# 修改会报错。
+a[1] = '0'
+
+
+
+
 
