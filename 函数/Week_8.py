@@ -81,7 +81,7 @@ def calculate(n_heads,n_legs):
         for n_rabbits in range(0, n_heads+1):
             n_spider=n_heads-n_chicks-n_rabbits
             total_legs=8*n_spider+4*n_rabbits+2*n_chicks
-            if (total_legs==n_legs) and (total_legs>0):
+            if (total_legs==n_legs) and (n_spider>=0):
                 i=i+1
                 print("第"+str(i)+"种可能组合:","鸡：",n_chicks,"兔子：",n_rabbits, "蜘蛛：", n_spider)
     if i==0:
