@@ -89,8 +89,32 @@ with open('new_bacon.txt', 'r') as f:
     print(f.read())
 '''
 
+
+
+''''
 # 打开一个图片，在解释器中使用
 from PIL import Image
 im = Image.open("D:\\marvel.jpg")
 print(im.format, im.size, im.mode)
+
+
+#缩小
+im.thumbnail((128,128))
+print(im.format, im.size, im.mode)
+im.save("marvel.png")
+
+
+
+#颜色交换
+r,g,b, = im.split()
+om = Image.merge("RGB",(b,g,r))
+om.save("marvel.png")
+
+
+from PIL import ImageFilter
+om = im.filter(ImageFilter.EMBOSS)
+om.save("marvel.png")
+'''
+
+
 
